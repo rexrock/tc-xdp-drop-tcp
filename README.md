@@ -21,6 +21,10 @@ ip link set dev <dev> xdp off
 ```
 
 ## 3. TC
+Add clsact qdisc
+```bash
+tc qdisc add dev <dev> clsact
+```
 Attach ebpf program to tc
 ```bash
 tc filter add dev <dev> <ingress/egress> bpf da obj tc-xdp-drop-tcp.o sec tc verbose
